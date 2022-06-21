@@ -1,9 +1,9 @@
 data "aws_acm_certificate" "mydomain" {
-  domain = "*.tokyokjdomain.ml"
+  domain = "*."
 }
 
 data "aws_route53_zone" "tokyokjdomain" {
-  name         = "tokyokjdomain.ml"
+  name         = ""
   private_zone = false
 }
 
@@ -57,7 +57,7 @@ resource "aws_lb_target_group_attachment" "target_1" {
 
 resource "aws_route53_record" "alb" {
   zone_id = data.aws_route53_zone.tokyokjdomain.zone_id
-  name    = "alb.tokyokjdomain.ml"
+  name    = "alb."
   type    = "A"
 
   alias {
